@@ -1,77 +1,98 @@
+# 🌀 BozoSort Algoritması
 
-# Bozo Sort Algoritması
+**BozoSort**, listedeki elemanları sıralamak için kullanılan son derece verimsiz ve rastgelelik temelli bir sıralama algoritmasıdır. Genellikle bir **“şaka algoritması”** olarak bilinir.
 
-## 🔍 Algoritmanın Ne Yaptığı
-Bozo Sort, sıralama algoritmaları kategorisinde yer alan, rastgelelik temelli bir algoritmadır. Amaç, listeyi rastgele eleman değişimleriyle sıralı hale getirmektir.
-
-- **Kategori:** Sıralama algoritması
-- **Çözüm Yaklaşımı:** Brute Force (Zorlayıcı - rastgele deneme)
+Amaç, listeyi rastgele eleman değişimleriyle sıralı hale getirmektir.
 
 ---
 
-## 📅 Ne Zaman ve Neden Kullanıldığı
-Bozo Sort pratikte kullanılmaz. Algoritma teorisi derslerinde verimsiz algoritma örneği olarak kullanılır. Ayrıca sıralama algoritmalarının verimliliğini öğretmek için mizahi amaçlı sunulur.
+## 🧩 Kategori      
+ - Sıralama Algoritması
+## 🔍 Çözüm Yaklaşımı
+ - Brute Force (Zorlayıcı / Rastgele Deneme)
 
 ---
 
-## 📈 Karmaşıklık Analizi (Zaman ve Uzay)
+## ❓ Ne Zaman Kullanılır?
 
-| Durum            | Zaman Karmaşıklığı |
-|------------------|--------------------|
-| En iyi durum     | O(n)               |
-| Ortalama durum   | O(n!)              |
-| En kötü durum    | Sonsuz olabilir    |
+- Gerçek problemler için **kullanılmaz**.
+- Eğitim amaçlı, **algoritma verimliliğinin önemini vurgulamak** için.
+- Algoritma tasarımına **mizahi bir bakış sunmak** için.
+- Gerçek uygulamalarda **hiçbir zaman kullanılmaz**, çünkü çok verimsizdir.
 
-- **Uzay karmaşıklığı:** O(1) (in-place çalışır)
+---
+
+## 🎯 Neden Kullanılır?
+
+- **Rastgeleliğin algoritmalara etkisini göstermek** için.
+- **Verimli sıralama algoritmalarının gerekliliğini kavratmak** için.
+- “**Asla böyle bir algoritma yazmayın!**” mesajıyla, **optimizasyonun ve akıllı tasarımın önemini** vurgulamak için.
 
 ---
 
 ## 🧮 Algoritmanın Adımları
 
-1. Listenin sıralı olup olmadığını kontrol et.
-2. Eğer sıralı değilse, rastgele iki eleman seç.
-3. Bu iki elemanın yerini değiştir.
-4. Adım 1’e geri dön.
+1. Giriş olarak bir sayı dizisi alınır.
+2. Dizinin sıralı olup olmadığı kontrol edilir.
+3. Eğer sıralı değilse:
+   - Rastgele iki indeks seçilir.
+   - Seçilen elemanların yerleri değiştirilir.
+   - 2.adıma geri dönülür.
+4. Dizi sıralı hale gelene kadar bu işlem tekrar edilir.
+5. Sıralı dizi çıktı olarak verilir.
 
 ---
 
-## 🧪 Kullanım Yeterine Ait Örnekler
+## 📊 Karmaşıklık Analizi
 
-### Python Örneği
+| **Durum**                       | **Zaman Karmaşıklığı** | **Karşılaştırma Sayısı** | **Swap (Yer Değiştirme) Sayısı** |
+|--------------------------------|-------------------------|---------------------------|----------------------------------|
+| En İyi Durum (dizi sıralıysa)  | Θ(n)                    | Θ(n)                      | Θ(1)                             |
+| Ortalama Durum                 | Θ(n³ log n)             | Θ(n³ log n)               | Θ(n²)                            |
+| En Kötü Durum                  | ∞ (sonsuz)              | ∞                         | ∞                                |
 
-```python
-import random
+### 🧠 Uzay Karmaşıklığı
 
-def is_sorted(arr):
-    return all(arr[i] <= arr[i + 1] for i in range(len(arr) - 1))
-
-def bozo_sort(arr):
-    arr = arr[:]  # Orijinal listeyi koru
-    while not is_sorted(arr):
-        i, j = random.sample(range(len(arr)), 2)
-        arr[i], arr[j] = arr[j], arr[i]
-    return arr
-
-# Örnek kullanım
-liste = [3, 2, 1]
-print("Sıralanmadan önce:", liste)
-sirali = bozo_sort(liste)
-print("Sıralandıktan sonra:", sirali)
-```
+- **Θ(1)** (Ekstra bellek gerekmez)
 
 ---
 
-## ✅ Avantajları ve ❌ Dezavantajları
+## 📌 Kullanım Yerleri
 
-### ✅ Avantajları
-- Uygulaması çok basittir.
-- Öğretici ve eğlenceli amaçlarla kullanılır.
-
-### ❌ Dezavantajları
-- Aşırı verimsizdir.
-- Büyük veri kümelerinde kesinlikle kullanılmaz.
-- Belirsiz çalışma süresi olabilir (asla sonlanmayabilir).
+- **Eğitim** ve **mizahi** amaçlarla.
+- **Kod görselleştirme** uygulamalarında eğlenceli örnek olarak.
+- **Verimsiz algoritmaların** ne kadar etkisiz olduğunu göstermek için.
 
 ---
 
-> ⚠️ **Uyarı:** Bozo Sort gerçek dünyada **kullanılmamalıdır**. Bu algoritma sadece öğretici amaçla veya algoritma analizinde karşılaştırma yapmak için kullanılır.
+## ✅ Avantajları
+
+- Basit ve kolay anlaşılır.
+- Rastgeleliğe dayalı algoritma yapısını öğretir.
+- Eğlencelidir, algoritma animasyonlarında kullanılabilir.
+
+---
+
+## ❌ Dezavantajları
+
+- Aşırı derecede **verimsizdir**.
+- Pratikte **hiçbir kullanım alanı yoktur**.
+- **Sonsuz döngü** riski taşır.
+- **Büyük veri kümelerinde** tamamen işlevsiz hale gelir.
+
+---
+
+## 📚 Kaynakça
+
+- [BozoSort - The Definitive C/C++/VB.NET/Java/PHP](https://www.coderslexicon.com/bozosort-definitive-c-c-vb-net-java-php/)
+- [What is BozoSort? - Stack Overflow](https://www.google.com/search?q=https://stackoverflow.com/questions/232292/what-is-bozo-sort)
+- [nayuki/Sorting-algorithms-demo - BozoSort.java](https://github.com/nayuki/Sorting-algorithms-demo/blob/master/src/io/nayuki/sortalgodemo/algo/BozoSort.java)
+- [vinimdocarmo/node-bozosort - GitHub](https://github.com/vinimdocarmo/node-bozosort?tab=readme-ov-file)
+
+
+## 👤 Hazırlayan
+
+**Esmanur Polattimur**  
+Konya Teknik Üniversitesi  
+Yapay Zeka ve Makine Öğrenmesi  
+Öğrenci No: **241230014**
